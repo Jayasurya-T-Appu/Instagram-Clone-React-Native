@@ -5,7 +5,7 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons'
 import React from "react";
 export default function Posts({ post }) {
   return (
-    <View style={{ marginTop: 20 }}>
+    <View style={{ marginBottom:10,marginTop:10 }}>
       <View style={styles.divider} />
       <PostHeader post={post} />
       <PostImage post={post} />

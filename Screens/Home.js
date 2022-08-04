@@ -1,4 +1,4 @@
-import { View, Text, Image, ScrollView } from 'react-native'
+import { View, ScrollView } from 'react-native'
 import React from 'react'
 import Header from '../Components/Home/Header'
 import Stories from '../Components/Home/Stories'
@@ -10,8 +10,9 @@ export default function Home() {
   return (
     <View style={{flex:1}}>
       <Header/>
+      <ScrollView  >
       <Stories/>
-      <ScrollView >
+      
        {
         POSTS.map((post, index) => {
             return <Posts key={index} post={post}/>
