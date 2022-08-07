@@ -3,8 +3,15 @@ import React from "react";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import { USERS } from "../../Data/USERS";
 import { useState } from "react";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebaseConfig";
 export default function BottomTab() {
   const [active, setActive] = useState("home");
+  const SignOut = ()=> {
+    signOut(auth).then(()=> {
+     
+    })
+  }
   const Icons = [
     {
       id: 1,
@@ -38,7 +45,7 @@ export default function BottomTab() {
           />
         );
       })}
-      <TouchableOpacity>
+      <TouchableOpacity onPress={SignOut}>
         <Image
           source={{ uri: USERS[0].image }}
           style={{
@@ -71,8 +78,7 @@ const styles = StyleSheet.create({
     divider: {
         flex: 1,
         borderBottomColor: "lightgrey",
-        borderBottomWidth: 1,
-        opacity: 0.4,
+        borderBottomWidth: StyleSheet.hairlineWidth,
       },
   container: {
     flexDirection: "row",
@@ -81,7 +87,7 @@ const styles = StyleSheet.create({
   },
 
   active: {
-    color: "red",
+    color: "#6BB0F5",
   },
   inActive: {
     color: "white",

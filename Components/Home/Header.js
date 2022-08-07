@@ -2,17 +2,25 @@ import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import React from 'react'
 
-export default function Header() {
+export default function Header({navigation}) {
   return (
     <View style={styles.container} >
-      <Image source={require('../../assets/instagram.png')} style={styles.logo}/>
+        <View style={{flexDirection:'row', alignItems:'center'}}>
+        <Image source={require('../../assets/instagram.png')} style={styles.logo}/>
+        <View style={{marginTop:5}}>
+        <AntDesign name='down' size={13} color='white'/>
+
+        </View>
+        </View>
       <View style={styles.iconContainer}> 
-        <Icon name="plussquareo"  />
-        <Icon name="hearto"  />
+      <TouchableOpacity onPress={() => navigation.push('NewPost')}>
+            <AntDesign name='plussquareo' size={20} color="white" style={{marginRight:15}}/>
+        </TouchableOpacity>
+  
         <TouchableOpacity >
             <AntDesign name='message1' size={20} color="white" style={{marginRight:15}}/>
             <View style={styles.badge}>
-                <Text style={{color:'white', fontSize:10, fontWeight:'700', }}>11</Text>   
+                <Text style={{color:'white', fontSize:10, fontWeight:'700', padding:1}}>11</Text>   
             </View>   
         </TouchableOpacity>
       </View>
@@ -53,11 +61,4 @@ const styles = StyleSheet.create({
     }
 })
 
-const Icon = ({name}) => {
-    return (
-        <TouchableOpacity>
-            <AntDesign name={name} size={20} color="white" style={{marginRight:15}}/>
-        </TouchableOpacity>
-    )
-}
 

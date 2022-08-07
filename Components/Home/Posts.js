@@ -2,13 +2,16 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import Feather from 'react-native-vector-icons/Feather'
 import EvilIcons from 'react-native-vector-icons/EvilIcons'
+import Entypo from 'react-native-vector-icons/Entypo'
 import React from "react";
 export default function Posts({ post }) {
   return (
     <View style={{ marginBottom:10,marginTop:10 }}>
-      <View style={styles.divider} />
+      <View>
       <PostHeader post={post} />
       <PostImage post={post} />
+      </View>
+      
       <View>
         <PostFooter/>
         <Likes post={post}/>
@@ -31,9 +34,10 @@ const PostHeader = ({ post }) => {
         <Image style={styles.profileImg} source={{ uri: post.profileImg }} />
         <Text style={{ color: "white" }}>{post.username}</Text>
       </View>
-      <Text style={{ color: "white", fontSize: 25, fontWeight: "700" }}>
-        ...
-      </Text>
+      <View style={{justifyContent:'center', transform:[{rotate:'90deg'}]}}>
+       <Entypo name="dots-three-horizontal" color='white' size={20}/>
+
+      </View>
     </View>
   );
 };
@@ -57,11 +61,12 @@ const PostFooter = ({ post }) => {
                 <AntDesign name='hearto' size={25} color="white" style={{marginHorizontal:10}}/>
             </TouchableOpacity>
             <TouchableOpacity>
-                <Feather name='send' size={25} color="white" style={{marginHorizontal:10}}/>
-            </TouchableOpacity>
-            <TouchableOpacity>
                 <EvilIcons name='comment' size={35} color="white" style={{marginHorizontal:10}}/>
             </TouchableOpacity>
+            <TouchableOpacity>
+                <Feather name='send' size={25} color="white" style={{marginHorizontal:10}}/>
+            </TouchableOpacity>
+           
         </View>
         <TouchableOpacity>
             <AntDesign name='down-square-o' size={25} color="white" style={{marginHorizontal:10,padding:5,marginTop:5}}/>
@@ -113,19 +118,16 @@ const ViewComments = ({post}) => {
 
 //////////////////////////////STYLES//////////////////////////////////////////////
 const styles = StyleSheet.create({
-  divider: {
-    flex: 1,
-    borderBottomColor: "lightgrey",
-    borderBottomWidth: 1,
-    opacity: 0.4,
-  },
+
   headerContainer: {
-    flex: 1,
+    width:'100%',
     marginTop: 10,
     flexDirection: "row",
     justifyContent: "space-between",
     paddingHorizontal: 5,
     marginBottom: 10,
+    position:'absolute',
+    zIndex:1,
   },
   profileImg: {
     height: 30,

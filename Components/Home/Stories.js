@@ -20,7 +20,7 @@ export default function Stories() {
                 source={{ uri: user.image }}
                 style={styles.storyImage}
               />
-              <Text style={{ color: "white", marginTop: 5 }}>{user.user > 10 ? user.user.slice(0,10).toLowerCase() + '...' : user.user.toLocaleLowerCase()}</Text>
+              <Text style={{ color: "white", marginTop: 5, fontSize:13 }}>{user.user > 10 ? user.user.slice(0,10).toLowerCase() + '...' : user.user.toLocaleLowerCase()}</Text>
             </View>
           </TouchableOpacity>
         ))}

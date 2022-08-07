@@ -3,11 +3,11 @@ import React from 'react'
 import AntDesign from "react-native-vector-icons/AntDesign";
 import FormikPostUploader from './FormikPostUploader';
 
-export default function AddNewPost() {
+export default function AddNewPost({navigation}) {
   return (
     <View >
-      <Header/>
-      <FormikPostUploader/>
+      <Header navigation={navigation}/>
+      <FormikPostUploader navigation={navigation}/>
     </View>
   )
 }
@@ -15,9 +15,9 @@ export default function AddNewPost() {
 
 /////////////////COMPONENTS////////////////
 
-const Header = () => (
+const Header = ({navigation}) => (
   <View style={styles.HeaderContainer}>
-  <TouchableOpacity>
+  <TouchableOpacity onPress={() => navigation.goBack()}>
     <AntDesign name="left" size={24} color="#fff" />
   </TouchableOpacity>
     <Text style={styles.text}>New Post</Text>

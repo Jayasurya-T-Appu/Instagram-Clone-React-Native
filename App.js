@@ -1,13 +1,15 @@
-/* import { StatusBar } from 'expo-status-bar'; */
-import { StyleSheet, Text, View } from 'react-native';
-import Home from './Screens/Home';
-import NewPost from './Screens/NewPost';
+import { StyleSheet, View } from 'react-native';
 import {  Platform, StatusBar } from "react-native";
-import SignedInStack from './Navigation';
+import AuthNavigation from './AuthNavigation';
+
+import { AsyncStorage } from 'react-native';
+import { useEffect } from 'react';
+
 export default function App() {
+
   return (
     <View style={styles.container}>
-      <SignedInStack/>
+      <AuthNavigation/>
     </View>
   );
 }
@@ -15,7 +17,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000000',
     paddingTop:Platform.OS === 'android' ? StatusBar.currentHeight : 0 
   },
 });
+
